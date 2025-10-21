@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
-df = pd.read_csv("data/product.csv")
+df = pd.read_csv("data/products.csv")
 
 # Standardize column names
 
@@ -44,9 +44,6 @@ df['Category Label'] = df['Category Label'].str.strip().str.title()
 
 # Convert column type to 'category'
 df['Category Label'] = df['Category Label'].astype('category')
-print("Category Label type after converting:",df['Category Label'].dtype)
-# Convert column type to 'category'
-df['sentiment'] = df['sentiment'].astype('category')
 
 # Keep only relevant columns
 df_model = df[['Product Title', 'Category Label']].copy()
